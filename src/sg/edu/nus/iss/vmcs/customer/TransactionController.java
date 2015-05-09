@@ -35,6 +35,7 @@ public class TransactionController {
 	private DispenseController dispenseCtrl;
 	private ChangeGiver changeGiver;
 	private CoinReceiver coinReceiver;
+	ReceiptOptionsPanel receiptPanel;
 
 	/**Set to TRUE when change is successfully issued during the transaction.*/
 	private boolean changeGiven=false;
@@ -54,6 +55,7 @@ public class TransactionController {
 		dispenseCtrl=new DispenseController(this);
 		coinReceiver=new CoinReceiver(this);
 		changeGiver=new ChangeGiver(this);
+		receiptPanel = new ReceiptOptionsPanel(custPanel, this);
 	}
 
 	/**
@@ -153,6 +155,15 @@ public class TransactionController {
 			getCustomerPanel().setChange(0);
 		}
 		coinReceiver.storeCash();
+		
+		receiptPanel.setVisible(true);
+	}
+	
+	public void closeReceiptOptionsPanel() {
+		receiptPanel.setVisible(false);
+	}
+	
+	public void refreshAfterTransaction() {
 		dispenseCtrl.allowSelection(true);
 		
 		refreshMachineryDisplay();
