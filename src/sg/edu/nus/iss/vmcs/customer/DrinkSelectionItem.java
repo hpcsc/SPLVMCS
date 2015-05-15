@@ -19,7 +19,6 @@ import java.awt.event.ActionListener;
 
 import sg.edu.nus.iss.vmcs.util.StockIndicator;
 import sg.edu.nus.iss.vmcs.util.StockIndicatorFactory;
-import sg.edu.nus.iss.vmcs.util.StockIndicatorType;
 import sg.edu.nus.iss.vmcs.util.WarningDisplay;
 
 /**
@@ -49,7 +48,7 @@ public class DrinkSelectionItem extends Panel{
 	 */
 	public DrinkSelectionItem(int drinkIdentifier, String drinkName, int drinkPrice, int quantity, boolean isActive, boolean isWarningOn){
 		this.stockIndicator = 
-				StockIndicatorFactory.getStockIndicator(StockIndicatorType.Actual, quantity);
+				StockIndicatorFactory.getStockIndicator(quantity);
 		
 		this.setDrinkIdentifier(drinkIdentifier);
 		this.setName(drinkName);

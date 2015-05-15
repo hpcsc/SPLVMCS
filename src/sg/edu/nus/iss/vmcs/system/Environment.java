@@ -25,6 +25,7 @@ public class Environment {
 	public final static String CASH_PROP_FILE = "cashFile";
 	/**This constant attribute denotes the password string*/
 	public final static String PASSWORD = "password";
+	public final static String STOCK_INDICATOR = "stockIndicator";
 
 	private static Properties prop;
 
@@ -71,5 +72,9 @@ public class Environment {
 	 */
 	public static String getPassword() {
 		return prop.getProperty(PASSWORD);
+	}
+	
+	public static String getStockIndicatorType() {
+		return prop.getProperty(STOCK_INDICATOR);
 	}
 }//End of class Environment
