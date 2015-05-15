@@ -28,6 +28,7 @@ public class Environment {
 	public final static String STOCK_INDICATOR = "stockIndicator";
 	public final static String STORAGE = "storage";
 	public final static String CHANGE_GIVING_SCHEME = "givingScheme";
+	public final static String RECEIPT_OPERATIONS = "receiptOperations";
 
 	private static Properties prop;
 
@@ -86,5 +87,9 @@ public class Environment {
 	
 	public static String getChangeGivingScheme() {
 		return prop.getProperty(CHANGE_GIVING_SCHEME);
+	}
+	
+	public static String getReceiptOperations() {
+		return prop.getProperty(RECEIPT_OPERATIONS);
 	}
 }//End of class Environment

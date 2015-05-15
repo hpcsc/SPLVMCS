@@ -24,11 +24,7 @@ public class ReceiptOptionsPanel extends Dialog {
 		panel = new Panel(new GridLayout());
 		this.add(panel);
 
-		availableOperations = new ReceiptOperation[] {
-			new SkipReceiptOperation(this),
-			new ShowOnScreenReceiptOperation(this),
-			new PrintReceiptOperation(this)
-		};
+		availableOperations = ReceiptOperationFactory.getAvailableReceiptOptions(this);
 	
 		for(final ReceiptOperation operation : availableOperations) {
 			Button button = new Button();
