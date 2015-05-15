@@ -34,7 +34,7 @@ public class ChangeGiver {
 	 */
 	public ChangeGiver(TransactionController txCtrl){
 		this.txCtrl=txCtrl;
-		this.changeGivingScheme = new BalancedNoOfDenominationScheme(); 
+		this.changeGivingScheme = ChangeGivingSchemeFactory.getChangeGivingScheme();
 	}
 	
 	/**

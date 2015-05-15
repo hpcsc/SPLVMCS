@@ -27,6 +27,7 @@ public class Environment {
 	public final static String PASSWORD = "password";
 	public final static String STOCK_INDICATOR = "stockIndicator";
 	public final static String STORAGE = "storage";
+	public final static String CHANGE_GIVING_SCHEME = "givingScheme";
 
 	private static Properties prop;
 
@@ -81,5 +82,9 @@ public class Environment {
 	
 	public static String getStorageType() {
 		return prop.getProperty(STORAGE);
+	}
+	
+	public static String getChangeGivingScheme() {
+		return prop.getProperty(CHANGE_GIVING_SCHEME);
 	}
 }//End of class Environment
