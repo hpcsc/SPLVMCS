@@ -4,6 +4,9 @@ import java.io.IOException;
 
 public class DatabasePersistence implements Persistence {
 
+	public DatabasePersistence(String connectionString) {
+	}
+	
 	@Override
 	public void saveProperty() throws IOException {
 		// TODO Auto-generated method stub

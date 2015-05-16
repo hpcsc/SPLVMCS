@@ -1,5 +1,7 @@
 package sg.edu.nus.iss.vmcs.customer;
 
+import java.lang.reflect.Constructor;
+import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,17 +13,39 @@ public class ReceiptOperationFactory {
 		
 		String[] config = Environment.getReceiptOperations().split(",");
 		for(String c : config) {
-			if(c.equals("skip")) {
-				operations.add(new SkipReceiptOperation(panel));
-			}
-			else if(c.equals("print")) {
-				operations.add(new PrintReceiptOperation(panel));
-			}
-			else if(c.equals("show")) {
-				operations.add(new ShowOnScreenReceiptOperation(panel));
-			}
+			operations.add(createInstance(c, panel));
 		}
 		
 		return operations.toArray(new ReceiptOperation[operations.size()]);
+	}
+	
+	private static ReceiptOperation createInstance(String type, ReceiptOptionsPanel panel) {
+		try {
+			Constructor c = Class.forName(type).getConstructor(panel.getClass());
+			return (ReceiptOperation) c.newInstance(panel); 
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (InstantiationException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IllegalAccessException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (NoSuchMethodException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SecurityException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IllegalArgumentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (InvocationTargetException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return null;
 	}
 }
