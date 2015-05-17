@@ -1,4 +1,4 @@
-package sg.edu.nus.iss.vmcs.store;
+package sg.edu.nus.iss.vmcs.util;
 
 import java.awt.Label;
 

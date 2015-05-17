@@ -1,5 +1,7 @@
 package sg.edu.nus.iss.vmcs.store;
 
+import sg.edu.nus.iss.vmcs.system.Environment;
+import junit.framework.TestCase;
 import junit.framework.TestSuite;
 
 /**
@@ -23,8 +25,11 @@ public class AllTests {
 		  suite.addTestSuite(StoreControllerTest.class);
 		  suite.addTestSuite(StoreItemTest.class);
 		  suite.addTestSuite(StoreObjectTest.class);
-		  suite.addTestSuite(ActualStockIndicatorTest.class);
-		  suite.addTestSuite(LowStockIndicatorTest.class);
+		  
+		  Environment.initialize("vmcs.properties");
+		  Class<TestCase> stockTestClass = (Class<TestCase>) Class.forName(Environment.getStockIndicatorType() + "Test");
+		  suite.addTestSuite(stockTestClass);
+		  
 		  return suite;
 	}
 }//End of class AllTests
